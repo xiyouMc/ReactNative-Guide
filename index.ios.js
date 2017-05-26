@@ -13,6 +13,31 @@ import {
   View
 } from 'react-native';
 
+
+const styles=StyleSheet.create({
+    bigblue:{
+      color:'blue',
+      fontWeight:'bold',
+      fontSize:30,
+    },
+    red:{
+      color:'red'
+    }
+})
+
+class LotsOfStyles extends Component{
+  render(){
+    return(
+      <View>
+        <Text style={styles.red}>just red</Text>
+        <Text style={styles.bigblue}>just bigblue</Text>
+        <Text style= {[styles.bigblue,styles.red]}>bigblue,then red</Text>
+        <Text style={[styles.red,styles.bigblue]}>red,then bigblue</Text>
+      </View>
+    )
+  }
+}
+
 class Blink extends Component{
   constructor(props){
     super(props);
@@ -55,8 +80,10 @@ render(){
         <Greeting n = 'iOS'/>
         <Image source={pic} style={{width:193,height:110}}/>
 
-        <Blink text = 'I love Android'/>
-        <Blink text = 'I love iOS'/>
+        <LotsOfStyles/>
+        <FixedDimensionsBasics/>
+        {/*<Blink text = 'I love Android'/>
+        <Blink text = 'I love iOS'/>*/}
     </View>
     
   );
@@ -64,3 +91,16 @@ render(){
 }
 
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
+
+
+class FixedDimensionsBasics extends Component{
+  render(){
+    return (
+      <View>
+        <View style={{ width:50,height:50,backgroundColor:'powderblue'}}/>
+        <View style={{ width:150,height:150,backgroundColor:'skyblue'}}/>
+        </View>
+    )
+  }
+}
+// AppRegistry.registerComponent('HelloWorldApp',()=>FixedDimensionsBasics)
