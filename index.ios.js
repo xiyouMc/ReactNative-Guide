@@ -13,6 +13,28 @@ import {
   View
 } from 'react-native';
 
+class Blink extends Component{
+  constructor(props){
+    super(props);
+    this.state={showText:true};
+
+    setInterval(
+      ()=>{
+        this.setState(previousState=>{
+          return { showText:!previousState.showText}
+        });
+      },100
+    );
+  }
+
+  render(){
+    let display = this.state.showText ?this.props.text:' ';
+    return (
+      <Text>{display}</Text>
+    )
+  }
+}
+
 class Greeting extends Component{
   render(){
     return (
@@ -32,6 +54,9 @@ render(){
         <Greeting n = 'Android'/>
         <Greeting n = 'iOS'/>
         <Image source={pic} style={{width:193,height:110}}/>
+
+        <Blink text = 'I love Android'/>
+        <Blink text = 'I love iOS'/>
     </View>
     
   );
