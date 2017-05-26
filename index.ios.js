@@ -13,13 +13,27 @@ import {
   View
 } from 'react-native';
 
+class Greeting extends Component{
+  render(){
+    return (
+        <Text> Hello {this.props.n}! </Text>
+    );
+  }  
+}
+
 class HelloWorldApp extends Component{
 render(){
   let pic = {
     uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
   }
   return (
-    <Image source={pic} style={{width:193,height:110}}/>
+    <View style={{ alignItems: 'center'}}>
+        <Greeting n = 'RxJava'/>
+        <Greeting n = 'Android'/>
+        <Greeting n = 'iOS'/>
+        <Image source={pic} style={{width:193,height:110}}/>
+    </View>
+    
   );
 }
 }
